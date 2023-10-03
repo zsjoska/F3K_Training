@@ -12,8 +12,7 @@
 -- On Horus using widgets, you can customize it in the GUI Widget settings menu 
 -- by holding the select button while the widget is selected.
 
-local PRELAUNCH_SWITCH = 'se' 		-- temporary switch on the left
---local PRELAUNCH_SWITCH = 'sh'		-- temporary switch on the right (or emulator)
+local PRELAUNCH_SWITCH = 'sa' 		-- temporary switch on the left
 local MENU_SWITCH = 'sc'		-- a 3-pos switch is mandatory here : up=menu; mid=stop; down=run
 local MENU_SCROLL_ENCODER = 'thr'
 
