@@ -16,6 +16,10 @@ local PRELAUNCH_SWITCH = 'sa' 		-- temporary switch on the left
 local MENU_SWITCH = 'sc'		-- a 3-pos switch is mandatory here : up=menu; mid=stop; down=run
 local MENU_SCROLL_ENCODER = 'thr'
 
+local RADIO_VOLTAGE = {"Batt"}
+local MODEL_VOLTAGE = {"RxBt", "Rbt"}
+local HEIGHT = {"GAlt", "Valt"}
+
 local SOUND_PATH = F3K_SCRIPT_PATH .. 'sounds/'
 
 
@@ -73,13 +77,26 @@ local function landed()
 end	
 --]]
 
-
+local function safeGetFieldIfoId(fieldList)
+	for key,value in ipairs(fieldList) 
+	do
+		local fi = getFieldInfo(value)
+		if( fi ) then
+			print("telemetry "..value.." looks usable")
+			return fi.id
+		end
+	end
+	return nil	
+end
 
 return { 
 	MENU_SWITCH = getFieldInfo( MENU_SWITCH ).id,
 	PRELAUNCH_SWITCH = getFieldInfo( PRELAUNCH_SWITCH ).id,
 	MENU_SCROLL_ENCODER = getFieldInfo( MENU_SCROLL_ENCODER ).id,
 	SOUND_PATH = SOUND_PATH,
+	RADIO_VOLTAGE = safeGetFieldIfoId( RADIO_VOLTAGE ),
+	MODEL_VOLTAGE = safeGetFieldIfoId( MODEL_VOLTAGE ),
+	HEIGHT = safeGetFieldIfoId( HEIGHT ),
 
 	resetLaunchDetection = resetLaunchDetection,
 	launched = launched,

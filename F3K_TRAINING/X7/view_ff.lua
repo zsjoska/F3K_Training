@@ -10,6 +10,7 @@
 
 
 local task = dofile( F3K_SCRIPT_PATH .. 'task_ff.lua' )
+local display = dofile( F3K_SCRIPT_PATH .. 'X7/viewbase.lua' )
 
 
 function task.display()
@@ -18,6 +19,7 @@ function task.display()
 	task.timer1.draw( 24, 18, DBLSIZE )
 	task.timer2.draw( 10, 53, 0 )
 	lcd.drawTimer( 50, 53, getValue( 'clock' ), 0 )
+	display.drawTelemetry()
 
 	lcd.drawLine( 0, 47, 89, 47, SOLID, 2 )
 	lcd.drawLine( 90, 0, 90, 63, SOLID, 2 )

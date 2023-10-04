@@ -18,7 +18,7 @@
 This you can manage the prestet swicth to start / stop timer correctly.
 1. open the 'sdVolume':\SCRIPTS\F3K_TRAINING folder
 2. Open the Custom.lua file.
-3. search this line local PRELAUNCH_SWITCH = 'se' and change 'se' with your preset switch if it is not equal.
+3. search this line local PRELAUNCH_SWITCH = 'sa' and change 'sa' with your preset switch if it is not equal.
 
 ## HOW TO USE F3K TRAINING
 1. Select in the radio the F3K model, go to model setting on section "DISPLAY", in a one empty screen select "script" and then select "f3k.lua".
