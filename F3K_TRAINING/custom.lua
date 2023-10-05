@@ -89,11 +89,26 @@ local function safeGetFieldIfoId(fieldList)
 	return nil	
 end
 
+local function safeGetSoundPath(basePath)
+	local ok, msg = pcall( function()
+		local ver, radio, maj, minor, rev, osname = getVersion()
+			if(osname and osname == 'EdgeTX') then
+				return F3K_SCRIPT_PATH .. 'sndhd/'
+			end
+	end )
+	
+	if(not ok) then
+		print(msg)
+		return basePath
+	end
+	return msg
+end
+
 return { 
 	MENU_SWITCH = getFieldInfo( MENU_SWITCH ).id,
 	PRELAUNCH_SWITCH = getFieldInfo( PRELAUNCH_SWITCH ).id,
 	MENU_SCROLL_ENCODER = getFieldInfo( MENU_SCROLL_ENCODER ).id,
-	SOUND_PATH = SOUND_PATH,
+	SOUND_PATH = safeGetSoundPath(SOUND_PATH),
 	RADIO_VOLTAGE = safeGetFieldIfoId( RADIO_VOLTAGE ),
 	MODEL_VOLTAGE = safeGetFieldIfoId( MODEL_VOLTAGE ),
 	HEIGHT = safeGetFieldIfoId( HEIGHT ),
