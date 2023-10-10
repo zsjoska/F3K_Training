@@ -92,9 +92,10 @@ end
 local function safeGetSoundPath(basePath)
 	local ok, msg = pcall( function()
 		local ver, radio, maj, minor, rev, osname = getVersion()
-			if(osname and osname == 'EdgeTX') then
-				return F3K_SCRIPT_PATH .. 'sndhd/'
-			end
+		if(osname and osname == 'EdgeTX') then
+			return F3K_SCRIPT_PATH .. 'sndhd/'
+		end
+		return basePath
 	end )
 	
 	if(not ok) then
