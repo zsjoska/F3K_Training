@@ -1,24 +1,28 @@
 local display = {}
 
-function display.drawTelemetry()
-	-- print(F3KConfig.MODEL_VOLTAGE)
-	if (F3KConfig.MODEL_VOLTAGE) then
-		mv, c1, f1 = getSourceValue(F3KConfig.MODEL_VOLTAGE)
-		mvStr = (mv and string.format("M:%.1f", mv)) or "M:-.-"
-		lcd.drawText(0, 38, mvStr, 0)
-	end
+local function getFirstValue( telemetryList )
+ 	for key,value in ipairs(telemetryList) 
+ 	do
+ 		local value = getSourceValue(value)
+ 		if( value ) then
+ 			return value
+ 		end
+ 	end
+ 	return nil
+end
 
-	if(F3KConfig.RADIO_VOLTAGE) then
-		rv, c1, f1 = getSourceValue(F3KConfig.RADIO_VOLTAGE)
-		rvStr = (rv and string.format("R:%.1f", rv)) or "R:-.-"
-		lcd.drawText(28, 38, rvStr, 0)
-	end
+function display.drawTelemetry()
+	value = getFirstValue(F3KConfig.MODEL_VOLTAGE)
+	mvStr = (value and string.format("M:%.1f", value)) or "M:-.-"
+	lcd.drawText(0, 38, mvStr, 0)
+
+	value = getFirstValue(F3KConfig.RADIO_VOLTAGE)
+	rvStr = (value and string.format("R:%.1f", value)) or "R:-.-"
+	lcd.drawText(28, 38, rvStr, 0)
 	
-	if(F3KConfig.HEIGHT) then
-		h, c1, f1 = getSourceValue(F3KConfig.HEIGHT)
-		hStr = (h and string.format("A:%.0f", h)) or "A:?"
-		lcd.drawText(56, 38, hStr, 0)
-	end
+	value = getFirstValue(F3KConfig.HEIGHT)
+	hStr = (value and string.format("A:%.0f", value)) or "A:?"
+	lcd.drawText(56, 38, hStr, 0)
 end
 
 

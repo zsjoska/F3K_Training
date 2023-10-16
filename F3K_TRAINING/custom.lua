@@ -93,26 +93,29 @@ local function safeGetSoundPath(basePath)
 	return msg
 end
 
-local function safeGetFieldIfoId(fieldList)
-	for key,value in ipairs(fieldList) 
-	do
-		local fi = getFieldInfo(value)
-		if( fi ) then
-			print("telemetry "..value.." looks usable")
-			return fi.id
-		end
-	end
-	return nil	
-end
+-- local function safeGetFieldIfoId(fieldList)
+-- 	for key,value in ipairs(fieldList) 
+-- 	do
+-- 		local fi = getFieldInfo(value)
+-- 		if( fi ) then
+-- 			print("telemetry "..value.." looks usable")
+-- 			return fi.id
+-- 		end
+-- 	end
+-- 	return nil	
+-- end
 
 return { 
 	MENU_SWITCH = getFieldInfo( MENU_SWITCH ).id,
 	PRELAUNCH_SWITCH = getFieldInfo( PRELAUNCH_SWITCH ).id,
 	MENU_SCROLL_ENCODER = getFieldInfo( MENU_SCROLL_ENCODER ).id,
 	SOUND_PATH = safeGetSoundPath(SOUND_PATH),
-	RADIO_VOLTAGE = safeGetFieldIfoId( RADIO_VOLTAGE ),
-	MODEL_VOLTAGE = safeGetFieldIfoId( MODEL_VOLTAGE ),
-	HEIGHT = safeGetFieldIfoId( HEIGHT ),
+	-- RADIO_VOLTAGE = safeGetFieldIfoId( RADIO_VOLTAGE ),
+	-- MODEL_VOLTAGE = safeGetFieldIfoId( MODEL_VOLTAGE ),
+	-- HEIGHT = safeGetFieldIfoId( HEIGHT ),
+	RADIO_VOLTAGE = RADIO_VOLTAGE,
+	MODEL_VOLTAGE = MODEL_VOLTAGE,
+	HEIGHT = HEIGHT,
 
 	resetLaunchDetection = resetLaunchDetection,
 	launched = launched,
