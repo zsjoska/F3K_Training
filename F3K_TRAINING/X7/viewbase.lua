@@ -1,12 +1,20 @@
 local display = {}
 
 local function getFirstValue( telemetryList )
- 	for key,value in ipairs(telemetryList) 
+ 	for key,name in ipairs(telemetryList) 
  	do
- 		local value = getSourceValue(value)
- 		if( value ) then
- 			return value
- 		end
+		local telemId = getSourceIndex(name)
+		if(telemId) then
+			local value = getSourceValue(telemId)
+			if( value ) then
+				return value
+			end
+		else
+			local value = getSourceValue(name)
+			if( value ) then
+				return value
+			end
+		end 		
  	end
  	return nil
 end
