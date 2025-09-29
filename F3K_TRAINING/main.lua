@@ -165,8 +165,7 @@ createMenu = function()
 		local FONT_HEIGHT = 20
 		local FONT_WIDTH = 12
 		
-		local div = 2048 / (#TASKS)  -- we want [0..n-1] steps
-		local selection = math.floor( (getValue( Options.MenuScrollEncoder ) - 1024) / -div )
+		local selection = math.floor((getValue(Options.MenuScrollEncoder) - 1024) * #TASKS / -2049)
 
 		local menuEntriesShown = math.floor( context.zone.h / FONT_HEIGHT )
 		

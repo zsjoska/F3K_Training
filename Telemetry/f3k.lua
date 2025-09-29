@@ -144,9 +144,7 @@ createMenu = function()
 
 	local function display()
 		--Draw the menu for select Task to use.
-		local div = 2048 / (#TASKS - 1)  -- we want [0..n-1] steps
-		local selection = math.floor( (getValue( Options.MenuScrollEncoder ) - 1024) / -div )
-		local halfMenuEntries = 3
+		local selection = math.floor((getValue(Options.MenuScrollEncoder) - 1024) * #TASKS / -2049)
 		local halfMenuEntries = 3
 		for i=0,6 do
 			local att = 0
