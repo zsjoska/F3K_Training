@@ -44,6 +44,11 @@ local taskBase = {
 	-- Some common stuff
 
 function taskBase.playTime( time )
+	if OpenTX.IS_EDGETX and playDuration then
+		playDuration( time, 0 )
+		return
+	end
+
 	local val = math.floor( time / 60 )
 	if val > 0 then
 		taskBase.playSound( 'remaining' )
