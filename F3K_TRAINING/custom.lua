@@ -16,6 +16,9 @@ local PRELAUNCH_SWITCH = 'se' 		-- temporary switch on the left
 --local PRELAUNCH_SWITCH = 'sh'		-- temporary switch on the right (or emulator)
 local MENU_SWITCH = 'sc'		-- a 3-pos switch is mandatory here : up=menu; mid=stop; down=run
 local MENU_SCROLL_ENCODER = 'thr'
+local RADIO_VOLTAGE = { 'Batt' }
+local MODEL_VOLTAGE = { 'RxBt', 'Rbt' }
+local HEIGHT = { 'GAlt', 'Valt' }
 
 local SOUND_PATH = F3K_SCRIPT_PATH .. 'sounds/'
 
@@ -95,6 +98,9 @@ return {
 	PRELAUNCH_SWITCH = getFieldInfo( PRELAUNCH_SWITCH ).id,
 	MENU_SCROLL_ENCODER = getFieldInfo( MENU_SCROLL_ENCODER ).id,
 	SOUND_PATH = safeGetSoundPath(SOUND_PATH),
+	RADIO_VOLTAGE = RADIO_VOLTAGE,
+	MODEL_VOLTAGE = MODEL_VOLTAGE,
+	HEIGHT = HEIGHT,
 
 	resetLaunchDetection = resetLaunchDetection,
 	launched = launched,
