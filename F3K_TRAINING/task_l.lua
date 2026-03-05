@@ -68,7 +68,7 @@ function taskL.flyingState()
 			else
 				taskL.initFlightTimer()
 				taskL.playSound( 'nxttarget' )
-				taskL.playTime( taskL.MAX_FLIGHT_TIME )
+				taskL.playRemainingTime( taskL.MAX_FLIGHT_TIME )
 				taskL.state = 4
 			end
 		end

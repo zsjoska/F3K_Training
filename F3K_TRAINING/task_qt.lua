@@ -83,7 +83,11 @@ function taskQT.flyingState()
 			local t = taskQT.timer2.getVal()
 			if t ~= taskQT.previousTime then
 				if(t == 30) then
-					playNumber( t, OpenTX.SECONDS, 0)
+					if playDuration then
+						playDuration( t, 0 )
+					else
+						playNumber( t, OpenTX.SECONDS, 0 )
+					end
 					taskQT.previousTime = t
 				elseif t > 0 and t <= 15 then
 					playNumber( t, 0, 0 )
@@ -103,7 +107,7 @@ function taskQT.landedState()
 			if remaining < taskQT.MAX_FLIGHT_TIME then
 				taskQT.timer2.start( remaining )
 				taskQT.playSound( 'remaining' )
-				taskQT.playTime( remaining )
+				taskQT.playRemainingTime( remaining )
 			else
 				taskQT.timer2.start()
 			end
