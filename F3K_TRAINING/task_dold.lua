@@ -89,7 +89,7 @@ function taskD.flyingState()
 						taskD.initFlightTimer()
 
 						taskD.playSound( 'nxttarget' )
-						taskD.playTime( taskD.MAX_FLIGHT_TIME )
+						taskD.playRemainingTime( taskD.MAX_FLIGHT_TIME )
 					end
 				end
 			end

@@ -14,7 +14,6 @@
 
 
 local openTX = {}
-openTX.IS_EDGETX = false
 openTX.OS_NAME = 'OpenTX'
 
 
@@ -177,7 +176,6 @@ ok, msg = pcall( function()
 	local ver, radio, majorVer, minorVer, rev, osname = getVersion()
 	if type( osname ) == 'string' then
 		openTX.OS_NAME = osname
-		openTX.IS_EDGETX = (osname == 'EdgeTX')
 	end
 
 	local major, minor, patch = ver:match("^(%d+)%.(%d+)%.?(%d*)$")

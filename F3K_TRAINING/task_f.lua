@@ -64,7 +64,7 @@ function taskF.landedState()
 			if remaining < taskF.MAX_FLIGHT_TIME then
 				taskF.timer2.start( remaining )
 				taskF.playSound( 'remaining' )
-				taskF.playTime( remaining )
+				taskF.playRemainingTime( remaining )
 			else
 				taskF.timer2.start()
 			end
