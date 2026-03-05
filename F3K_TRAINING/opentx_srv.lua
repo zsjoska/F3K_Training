@@ -14,7 +14,6 @@
 
 
 local openTX = {}
-openTX.OS_NAME = 'OpenTX'
 
 
 local function createLcdLayer()
@@ -173,10 +172,7 @@ if not ok then
 end
 
 ok, msg = pcall( function()
-	local ver, radio, majorVer, minorVer, rev, osname = getVersion()
-	if type( osname ) == 'string' then
-		openTX.OS_NAME = osname
-	end
+	local ver = getVersion()
 
 	local major, minor, patch = ver:match("^(%d+)%.(%d+)%.?(%d*)$")
 	print("Read version " .. major .. '.' .. minor .. '.' .. patch)
