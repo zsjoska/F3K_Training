@@ -75,7 +75,7 @@ function taskBase.initFlightTimer()
 end
 
 function taskBase.initPrepTimer()
-	taskBase.timer1 = createTimer( 0, taskBase.PREP_TIME, 2, false )
+	taskBase.timer1 = createTimer( 0, taskBase.PREP_TIME, 1, false )
 end
 
 
