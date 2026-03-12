@@ -23,9 +23,9 @@ function task.display()
 
 	lcd.drawLine( 106, 20, 106, 31, SOLID, 2 )
 
-	lcd.drawNumber( 100, 22, task.deltas.min, RIGHT )
+	lcd.drawNumber( 87, 22, task.deltas.min, 0 )
 	lcd.drawText( lcd.getLastPos(), 22, 's', 0 )
-	lcd.drawNumber( 122, 22, task.deltas.max, RIGHT )
+	lcd.drawNumber( 109, 22, task.deltas.max, 0 )
 	lcd.drawText( lcd.getLastPos(), 22, 's', 0 )
 
 	lcd.drawFilledRectangle( 85, 32, 43, 10, 0 )
