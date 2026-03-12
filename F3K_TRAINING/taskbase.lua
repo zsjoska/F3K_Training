@@ -49,6 +49,8 @@ function taskBase.playRemainingTime( time )
 		return
 	end
 
+	// this is a legacy code, OpenTX 2.2+ has playDuration
+	// The OpenTX.MINUTES and OpenTX.SECONDS constants are no longer suitable
 	local val = math.floor( time / 60 )
 	if val > 0 then
 		playNumber( val, OpenTX.MINUTES, 0 )
