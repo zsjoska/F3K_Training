@@ -44,10 +44,6 @@ local taskBase = {
 	-- Some common stuff
 
 function taskBase.playRemainingTime( time )
-	if time >= 60 then
-		taskBase.playSound( 'remaining' )
-	end
-
 	if playDuration then
 		playDuration( time, 0 )
 		return
