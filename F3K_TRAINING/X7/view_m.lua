@@ -23,17 +23,18 @@ function task.display()
 
 	--draw right list of target with the time if is complete.
 	local total = 0
+	local y = 3
 	for i=0,2 do
-		local y = 6 + 14 * i
 		local max = 180 + 120 * i
-		lcd.drawNumber( 100, y, max, SMLSIZE + RIGHT )
+		lcd.drawNumber( 86, y, max, SMLSIZE + RIGHT )
 		lcd.drawText( lcd.getLastPos(), y, 's', SMLSIZE )
 
 		if i < task.current - 1 then
 			local val = task.times.getVal( 5 - task.current + i )
-			lcd.drawTimer( 106, y, val, SMLSIZE )
+			lcd.drawTimer( 107, y + 8, val, SMLSIZE )
 			total = total + math.min( max, val )
 		end
+		y = y + 14
 	end
 	-- Draw the right bottom black total
 	lcd.drawFilledRectangle( 85, 47, 52, 18, 0 )
