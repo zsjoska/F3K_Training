@@ -25,8 +25,11 @@ function task.display()
 	--print("i : " .. i)
 		local y = 2 + 9 * i
 		local max = 60 + 30 * i
-		lcd.drawNumber( 100, y, max, SMLSIZE + RIGHT )
-		lcd.drawText( lcd.getLastPos(), y, 's', SMLSIZE )
+
+		-- Render as one fixed-width label to avoid RIGHT/alignment differences
+		-- across firmware versions that can cause overlap artifacts.
+		local targetLabel = string.format( '%3ds', max )
+		lcd.drawText( 85, y, targetLabel, SMLSIZE )
 
 		if i < task.current - 1 then
 		--print (7-task.current+i)
