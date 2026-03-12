@@ -17,7 +17,7 @@ function task.display()
 	if task.done then
 		lcd.drawText( 10, 50, 'Done !', MIDSIZE )
 	else
-		lcd.drawText( 4, 53, task.MAX_FLIGHT_TIME .. 's: ', SMLSIZE )
+		lcd.drawText( 0, 53, task.MAX_FLIGHT_TIME .. 's: ', SMLSIZE )
 		task.timer2.drawReverse( lcd.getLastPos(), 50, MIDSIZE )
 	end
 
@@ -32,7 +32,7 @@ function task.display()
 		end
 
 		local y = 2 + 9 * i
-		lcd.drawNumber( 100, y, 30 + 15 * i, att + RIGHT + SMLSIZE )
+		lcd.drawNumber( 86, y, 30 + 15 * i, att + RIGHT + SMLSIZE )
 		lcd.drawText( lcd.getLastPos(), y, 's', att + SMLSIZE )
 
 		if i < task.current then
